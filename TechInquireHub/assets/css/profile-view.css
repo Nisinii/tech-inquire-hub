@@ -1,0 +1,683 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --app-container: #f3f6fd;
+    --main-color: #1f1c2e;
+    --secondary-color: #4a4a4a;
+    --link-color: #1f1c2e;
+    --link-color-hover: #c3cff4;
+    --link-color-active: #fff;
+    --link-color-active-bg: #1f1c2e;
+    --projects-section: #fff;
+    --button-bg: #1f1c24;
+    --search-area-bg: #fff;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background-color: var(--app-container);
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+.app-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--app-container);
+    transition: 0.2s;
+    max-width: 1800px;
+}
+
+.app-container button,
+.app-container input,
+.app-container optgroup,
+.app-container select,
+.app-container textarea {
+    font-family: 'DM Sans', sans-serif;
+}
+
+.app-content {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    padding: 16px 24px 24px 0;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 24px;
+    position: relative;
+}
+
+.app-header-left,
+.app-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.app-header-left {
+    flex-grow: 1;
+}
+
+.app-header-right button {
+    margin-left: 10px;
+}
+
+.app-icon {
+    width: 26px;
+    height: 2px;
+    border-radius: 4px;
+    background-color: var(--main-color);
+    position: relative;
+}
+
+.app-icon:before,
+.app-icon:after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    border-radius: 4px;
+    background-color: var(--main-color);
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.app-icon:before {
+    top: -6px;
+}
+
+.app-icon:after {
+    bottom: -6px;
+}
+
+.app-name {
+    color: var(--main-color);
+    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    margin: 0 32px;
+}
+
+.mode-switch {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 8px;
+    border-right: 2px solid #ddd;
+}
+
+.add-btn {
+    color: #fff;
+    background-color: var(--button-bg);
+    padding: 12px;
+    border: 0;
+    border-radius: 5px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-sidebar {
+    padding: 40px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-sidebar-link {
+    color: var(--main-color);
+    color: var(--link-color);
+    margin: 16px 0;
+    transition: 0.2s;
+    border-radius: 50%;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-sidebar-link:hover {
+    background-color: var(--link-color-hover);
+    color: var(--link-color-active);
+}
+
+.app-sidebar-link.active {
+    background-color: var(--link-color-active-bg);
+    color: var(--link-color-active);
+}
+
+.projects-section {
+    flex: 2;
+    background-color: var(--projects-section);
+    border-radius: 32px;
+    padding: 32px 32px 0 32px;
+    overflow: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects-section-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projects-section p {
+    font-size: 18px;
+    color: #000;
+}
+
+.projects-section-line p {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    opacity: 0.9;
+    margin: 0;
+    color: var(--main-color);
+}
+
+.project-boxes {
+    margin: 0 -8px;
+    overflow-y: auto;
+}
+
+.project-boxes.jsGridView {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-boxes.jsGridView .project-box-wrapper {
+    width: 50%;
+}
+
+.project-boxes.jsListView .project-box {
+    display: flex;
+    border-radius: 10px;
+    position: relative;
+}
+
+.project-boxes.jsListView .project-box>* {
+    margin-right: 24px;
+}
+
+.project-boxes.jsListView .more-wrapper {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+
+.project-boxes.jsListView .project-box-content-header {
+    order: 1;
+    max-width: 120px;
+}
+
+.project-boxes.jsListView .project-box-header {
+    order: 2;
+}
+
+.project-boxes.jsListView .project-box-footer {
+    order: 3;
+    padding-top: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.project-boxes.jsListView .project-box-footer:after {
+    display: none;
+}
+
+.project-boxes.jsListView .participants {
+    margin-bottom: 8px;
+}
+
+.project-boxes.jsListView .project-box-content-header p {
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.project-boxes.jsListView .project-box-header>span {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-size: 12px;
+}
+
+.project-boxes.jsListView .box-progress-wrapper {
+    order: 3;
+    flex: 1;
+}
+
+.project-box {
+    --main-color-card: #dbf6fd;
+    border-radius: 5px;
+    padding: 16px;
+    width: 80%;
+    background-color: var(--main-color-card);
+    float: right;
+    margin-right: 10%;
+    border: 1px solid #b4d5f6;
+    font-size: 14px;
+    color: #777;
+}
+
+.project-box-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.project-box-text {
+    text-align: justify;
+    line-height: 1.5;
+    /* Adjust as needed */
+}
+
+.project-box-steps {
+    margin-top: 15px;
+}
+
+.project-box-steps ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding: 0;
+}
+
+.project-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    color: var(--main-color);
+}
+
+.project-box-header span {
+    color: #4a4a4a;
+    opacity: 0.7;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.project-box-content-header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.project-box-content-header p {
+    margin: 0;
+}
+
+.project-box-wrapper {
+    padding: 8px;
+    transition: 0.2s;
+}
+
+.mode-switch.active .moon {
+    fill: var(--main-color);
+}
+
+.projects-section .content div {
+    margin-bottom: 0px;
+}
+
+.projects-section div {
+    margin-bottom: 30px;
+}
+
+.projects-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.projects-section li {
+    margin-bottom: 15px;
+    background-color: #F0FFFF;
+    padding: 20px;
+    border: 1px solid #b4d5f6;
+    border-radius: 5px;
+}
+
+.projects-section .content li {
+    border: none;
+    padding-left: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.projects-section a {
+    margin-left: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.projects-section a:hover {
+    text-decoration: underline;
+}
+
+.navigation-bar {
+    display: flex;
+    padding: 2px 2px 2px 0px;
+    margin-right: 5px;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab {
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 8px 20px 8px 20px;
+    border-radius: 50px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.tab.active {
+    background-color: #dbf6fd;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    display: block;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #0298bf;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #08cafc;
+    color: #000;
+}
+
+.profile p {
+    color: #0047AB;
+    margin: 5px;
+}
+
+.profile a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.profile a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.projects-section .questions {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.questions a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0px;
+}
+
+.questions a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.answers a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0px;
+}
+
+.answers a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Dark mode css */
+.dark:root {
+    --app-container: #1f2029;
+    --main-color: #ffeba7;
+    --secondary-color: rgba(255, 255, 255, .8);
+    --projects-section: #2b2e38;
+    --link-color: #ffeba7;
+    --link-color-hover: rgba(195, 207, 244, 0.1);
+    --link-color-active-bg: rgba(195, 207, 244, 0.2);
+    --button-bg: #2b2e38;
+    --search-area-bg: #2b2e38;
+    --light-font: rgba(255, 255, 255, .8);
+}
+
+.dark .project-box {
+    background-color: #fcf7e3;
+}
+
+.dark .tag {
+    background-color: #ffeba7;
+}
+
+.dark .tag:hover {
+    background-color: #3c404f;
+    color: #fff;
+}
+
+.dark .form-group {
+    color: #fff;
+}
+
+.dark .btn-primary {
+    background-color: #ffeba7;
+    color: #000;
+}
+
+.dark .btn-primary:hover {
+    background-color: #ffdb61;
+}
+
+.dark .navigation-bar {
+    border-top: 2px solid #ffeba7;
+    border-bottom: 2px solid #ffeba7;
+}
+
+.dark .tab.active {
+    background-color: #ffeba7;
+}
+
+.dark .tab.active {
+    color: #000;
+}
+
+.dark .projects-section p {
+    color: #ffeba7;
+}
+
+.dark .profile a {
+    color: #000;
+    text-decoration: none;
+}
+
+.dark .projects-section li {
+    background-color: #ccc;
+    border: 1px solid #777777;
+}
+
+.dark .projects-section .content li {
+    border: none;
+}
+
+.dark .questions a {
+    color: #000;
+}
+
+.dark .answers a {
+    color: #000;
+}
+
+.dark .profile p {
+    color: #ccc;
+}
+
+.dark .projects-section {
+    background-color: none;
+}
+
+/* Responsive css */
+@media screen and (max-width: 980px) {
+    .project-boxes.jsGridView .project-box-wrapper {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+
+    .app-name,
+    .profile-btn span {
+        display: none;
+    }
+
+    .mode-switch {
+        width: 20px;
+        height: 20px;
+    }
+
+    .mode-switch svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .app-header-right button {
+        margin-left: 4px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .projects-section {
+        overflow: auto;
+    }
+
+    .project-boxes {
+        overflow-y: visible;
+    }
+
+    .app-sidebar,
+    .app-icon {
+        display: none;
+    }
+
+    .app-content {
+        padding: 16px 12px 24px 12px;
+    }
+
+    .view-btn {
+        width: 24px;
+        height: 24px;
+    }
+
+    .app-header {
+        padding: 16px 10px;
+    }
+
+    .search-input {
+        max-width: 120px;
+    }
+
+    .project-boxes.jsGridView .project-box-wrapper {
+        width: 100%;
+    }
+
+    .projects-section {
+        padding: 24px 16px 0 16px;
+    }
+
+    .profile-btn img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .app-header {
+        padding: 10px;
+    }
+
+    .search-input {
+        font-size: 14px;
+    }
+
+    .box-content-header {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .box-content-header a {
+        text-decoration: none;
+    }
+
+    .box-content-subheader {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .project-boxes.jsListView .project-box-header>span {
+        font-size: 10px;
+    }
+
+    .project-boxes.jsListView .project-box>* {
+        margin-right: 10px;
+    }
+
+    .project-boxes.jsListView .more-wrapper {
+        right: 2px;
+        top: 10px;
+    }
+}

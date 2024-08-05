@@ -1,0 +1,555 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --app-container: #f3f6fd;
+    --main-color: #1f1c2e;
+    --secondary-color: #4a4a4a;
+    --link-color: #1f1c2e;
+    --link-color-hover: #c3cff4;
+    --link-color-active: #fff;
+    --link-color-active-bg: #1f1c2e;
+    --projects-section: #fff;
+    --button-bg: #1f1c24;
+    --search-area-bg: #fff;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background-color: var(--app-container);
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+.app-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--app-container);
+    transition: 0.2s;
+    max-width: 1800px;
+}
+
+.app-container button,
+.app-container input,
+.app-container optgroup,
+.app-container select,
+.app-container textarea {
+    font-family: 'DM Sans', sans-serif;
+}
+
+.app-content {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    padding: 16px 24px 24px 0;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 24px;
+    position: relative;
+}
+
+.app-header-left,
+.app-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.app-header-left {
+    flex-grow: 1;
+}
+
+.app-header-right button {
+    margin-left: 10px;
+}
+
+.app-icon {
+    width: 26px;
+    height: 2px;
+    border-radius: 4px;
+    background-color: var(--main-color);
+    position: relative;
+}
+
+.app-icon:before,
+.app-icon:after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    border-radius: 4px;
+    background-color: var(--main-color);
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.app-icon:before {
+    top: -6px;
+}
+
+.app-icon:after {
+    bottom: -6px;
+}
+
+.app-name {
+    color: var(--main-color);
+    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    margin: 0 32px;
+}
+
+.mode-switch {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 8px;
+    border-right: 2px solid #ddd;
+}
+
+.add-btn {
+    color: #fff;
+    background-color: var(--button-bg);
+    padding: 12px;
+    border: 0;
+    border-radius: 5px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-sidebar {
+    padding: 40px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-sidebar-link {
+    color: var(--main-color);
+    color: var(--link-color);
+    margin: 16px 0;
+    transition: 0.2s;
+    border-radius: 50%;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-sidebar-link:hover {
+    background-color: var(--link-color-hover);
+    color: var(--link-color-active);
+}
+
+.app-sidebar-link.active {
+    background-color: var(--link-color-active-bg);
+    color: var(--link-color-active);
+}
+
+.projects-section {
+    flex: 2;
+    background-color: var(--projects-section);
+    border-radius: 32px;
+    padding: 32px 32px 0 32px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects-section-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 32px;
+}
+
+.projects-section-line p {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    opacity: 0.9;
+    margin: 0;
+    color: var(--main-color);
+}
+
+.project-boxes {
+    margin: 0 -8px;
+    overflow-y: auto;
+}
+
+.project-boxes.jsGridView {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-boxes.jsGridView .project-box-wrapper {
+    width: 50%;
+}
+
+.project-boxes.jsListView .project-box {
+    display: flex;
+    border-radius: 10px;
+    position: relative;
+}
+
+.project-boxes.jsListView .project-box>* {
+    margin-right: 24px;
+}
+
+.project-boxes.jsListView {
+    order: 1;
+    max-width: 120px;
+}
+
+.project-boxes.jsListView {
+    order: 2;
+}
+
+.project-boxes.jsListView {
+    order: 3;
+    padding-top: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.project-boxes.jsListView p {
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.project-boxes.jsListView>span {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-size: 12px;
+}
+
+.project-box {
+    --main-color-card: #dbf6fd;
+    border-radius: 5px;
+    padding: 16px;
+    width: 80%;
+    background-color: var(--main-color-card);
+    float: right;
+    margin-right: 10%;
+    border: 1px solid #b4d5f6;
+    font-size: 14px;
+    color: #777;
+}
+
+.project-box-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.project-box-text {
+    text-align: justify;
+    line-height: 1.5;
+    /* Adjust as needed */
+}
+
+.project-box-steps {
+    margin-top: 15px;
+}
+
+.project-box-steps ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding: 0;
+}
+
+.project-box-wrapper {
+    padding: 8px;
+    transition: 0.2s;
+}
+
+.mode-switch.active .moon {
+    fill: var(--main-color);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: #93e5fa;
+    color: #000;
+    padding: 8px 12px;
+    border-radius: 20px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s;
+}
+
+.tag:hover {
+    background-color: #2c68b9;
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-info {
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #0298bf;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #08cafc;
+    color: #000;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-input-label {
+    font-size: 14px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #7393B3;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.file-input-label:hover {
+    background-color: #36454F;
+}
+
+.file-name {
+    font-size: 14px;
+    color: #555;
+}
+
+.editor-container {
+    margin: 20px auto;
+}
+
+.toolbar {
+    display: flex;
+    border: 1px solid #ccc;
+
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.toolbar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+#editor {
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-height: 200px;
+}
+
+/* Dark mode css */
+.dark:root {
+    --app-container: #1f2029;
+    --main-color: #ffeba7;
+    --secondary-color: rgba(255, 255, 255, .8);
+    --projects-section: #2b2e38;
+    --link-color: #ffeba7;
+    --link-color-hover: rgba(195, 207, 244, 0.1);
+    --link-color-active-bg: rgba(195, 207, 244, 0.2);
+    --button-bg: #2b2e38;
+    --search-area-bg: #2b2e38;
+    --light-font: rgba(255, 255, 255, .8);
+}
+
+.dark .project-box {
+    background-color: #fcf7e3;
+}
+
+.dark .tag {
+    background-color: #ffeba7;
+}
+
+.dark .tag:hover {
+    background-color: #3c404f;
+    color: #fff;
+}
+
+.dark .form-info {
+    color: #9e9e9e;
+}
+
+.dark .btn-primary {
+    background-color: #ffeba7;
+    color: #000;
+}
+
+.dark .btn-primary:hover {
+    background-color: #ffdb61;
+}
+
+.dark .form-control {
+    background-color: #ccc;
+}
+
+.dark .form-group {
+    color: #ccc;
+}
+
+.dark .toolbar {
+    border: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #ccc;
+}
+
+.dark .file-input-label {
+    background-color: #d0cd81;
+    color: #5c5d3f;
+}
+
+.dark .file-input-label:hover {
+    background-color: #5c5d3f;
+    color: #fff;
+}
+
+.dark .file-name {
+    color: #acacac;
+}
+
+.dark #editor {
+    border: 1px solid #ccc;
+    background-color: #2b2e38;
+    color: #fff;
+}
+
+
+/* Responsive css */
+@media screen and (max-width: 980px) {
+    .project-boxes.jsGridView .project-box-wrapper {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .mode-switch {
+        width: 20px;
+        height: 20px;
+    }
+
+    .mode-switch svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .app-header-right button {
+        margin-left: 4px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .projects-section {
+        overflow: auto;
+    }
+
+    .project-boxes {
+        overflow-y: visible;
+    }
+
+    .app-sidebar,
+    .app-icon {
+        display: none;
+    }
+
+    .app-content {
+        padding: 16px 12px 24px 12px;
+    }
+
+    .app-header {
+        padding: 16px 10px;
+    }
+
+    .project-boxes.jsGridView .project-box-wrapper {
+        width: 100%;
+    }
+
+    .projects-section {
+        padding: 24px 16px 0 16px;
+    }
+
+    .app-header {
+        padding: 10px;
+    }
+
+    .project-boxes.jsListView .project-box>* {
+        margin-right: 10px;
+    }
+
+    .project-boxes.jsListView .more-wrapper {
+        right: 2px;
+        top: 10px;
+    }
+}
