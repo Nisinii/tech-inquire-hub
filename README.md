@@ -13,7 +13,6 @@ This project is a technical question-and-answer website implemented using PHP, C
 #### _User Management_
 - User Registration and Login: Users can register, create accounts, log in, and log out. User details are stored in the database for account management.
   ![image](https://github.com/user-attachments/assets/0a8cdaae-b7bf-45ce-8a63-d74e6fc605e6)
-</br>
 - Account Management: Securely manage user credentials and sessions.
  ![image](https://github.com/user-attachments/assets/aab1e484-5306-4e64-a774-92ad53c68ff8)
 
@@ -22,9 +21,7 @@ This project is a technical question-and-answer website implemented using PHP, C
 #### _Question and Answer Functionality_
 - Post Questions: Users can post technical questions or doubts they have.
 ![image](https://github.com/user-attachments/assets/a695e8a3-5f01-404d-87c1-5830afd9e763)
-</br>
 ![image](https://github.com/user-attachments/assets/fc154739-bd97-41f6-9860-132f137dfa96)
-</br>
 
 - Add Tags: Users can add tags when posting questions to improve categorization.
 - Post Answers: Users can answer posted questions.
@@ -43,7 +40,6 @@ This project is a technical question-and-answer website implemented using PHP, C
 - Image Uploads: Users can upload images when posting questions or answers to provide further clarification.
 - Theme Toggle: Users can toggle between dark mode and light mode to personalize their experience.
 ![image](https://github.com/user-attachments/assets/f88f3585-5542-4e82-83ed-b41f50fbc93e)
-</br>
 
 ## Future Enhancements
 - Personalized Recommendations: Recommend questions to users based on their activity.
