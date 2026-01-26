@@ -120,3 +120,13 @@ Update your `base_url` to match your local development path (e.g., your folder n
   ```php
   $config['base_url'] = 'http://localhost/Technical-QA-Hub/';
   ```
+
+---
+
+## Author
+
+**Nisini Niketha** *Software Engineer & Digital Architect*
+
+* [GitHub](https://github.com/Nisinii)
+* [LinkedIn](https://www.linkedin.com/in/nisini-niketha/)
+* [Contact](mailto:wnisini.niketha@gmail.com)
