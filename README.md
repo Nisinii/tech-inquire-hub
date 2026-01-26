@@ -94,7 +94,7 @@ Technical-QA-Hub/
 
 ### 1. Clone & Prepare
 ```bash
-git clone [https://github.com/Nisinii/Technical-QA-Hub.git](https://github.com/Nisinii/Technical-QA-Hub.git)
+git clone https://github.com/Nisinii/TechInquireHub.git
 cd Technical-QA-Hub
 ```
 
