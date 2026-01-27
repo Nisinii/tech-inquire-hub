@@ -1,6 +1,6 @@
 # TECHNICAL Q&A HUB
 
-<img width="1328" height="818" alt="Technical Q&A Platform" src="https://github.com/user-attachments/assets/0a8cdaae-b7bf-45ce-8a63-d74e6fc605e6" />
+<img width="1330" height="823" alt="Question Posting" src="https://github.com/user-attachments/assets/a695e8a3-5f01-404d-87c1-5830afd9e763" />
 
 > **The Collaborative Pulse of Technical Problem Solving.** > A full-stack Q&A ecosystem designed to bridge the gap between complex technical hurdles and community-driven solutions through real-time interaction and rich-text expression.
 
@@ -22,7 +22,7 @@ The platform focuses on three core pillars:
 * **Community Validation:** Implementing a democratic upvote/downvote system to ensure the highest quality solutions rise to the top.
 * **Semantic Organization:** A tag-based architecture that allows for instant discovery of relevant content across different technology stacks.
 
-<img width="1330" height="823" alt="Question Posting" src="https://github.com/user-attachments/assets/a695e8a3-5f01-404d-87c1-5830afd9e763" />
+<img width="1328" height="818" alt="Technical Q&A Platform" src="https://github.com/user-attachments/assets/0a8cdaae-b7bf-45ce-8a63-d74e6fc605e6" />
 <img width="1324" height="823" alt="Answer Interface" src="https://github.com/user-attachments/assets/4cfe8f05-24b9-450d-8960-4d70abd5c66a" />
 <img width="1324" height="819" alt="Account Management" src="https://github.com/user-attachments/assets/aab1e484-5306-4e64-a774-92ad53c68ff8" />
 
